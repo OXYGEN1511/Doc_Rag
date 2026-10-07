@@ -1,0 +1,9 @@
+#spring.application.name=DOC_RAG
+spring:
+  profiles:
+    active: dev
+  application:
+    name : DOC_RAG
+server:
+  port: 8081
+
