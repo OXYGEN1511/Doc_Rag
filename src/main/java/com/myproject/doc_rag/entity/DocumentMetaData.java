@@ -1,6 +1,7 @@
 package com.myproject.doc_rag.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Table(name = "tbl_documentData")
 @Getter
 @Setter
+@Builder
 public class DocumentMetaData {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -39,5 +41,9 @@ public class DocumentMetaData {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 }
